@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  topping: MyString
+  stock: MyString
+
+two:
+  topping: MyString
+  stock: MyString
