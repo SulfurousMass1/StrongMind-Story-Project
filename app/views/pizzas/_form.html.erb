@@ -16,14 +16,36 @@
     <%= form.text_field :pizza_name %>
   </div>
 
-  <div>
+
+<div class="dropdown">
+  
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div>
+
+  <div style="padding-top: 5px; padding-bottom: 5px;">
     <%= form.label :crust, style: "display: block" %>
-    <%= form.text_field :crust %>
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Crust
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">Plain</a></li>
+      <li><a class="dropdown-item" href="#">Parmesan</a></li>
+      <li><a class="dropdown-item" href="#">Garlic Butter</a></li>
+      <li><a class="dropdown-item" href="#">Cheese Stuffed</a></li>
+    </ul>
   </div>
 
-  <div>
-    <%= form.label :toppings, style: "display: block" %>
-    <%= form.text_field :toppings %>
+  <div class="custom-checkbox">
+    <%= form_with(model: @pizza, local: true) do |form| %>
+      <%= form.collection_check_boxes :topping_ids, @toppings, :id, :topping, {style: "margin-left: 0; padding-left: 0;"} do |b| %>
+        <%= b.label { b.check_box + b.text } %>
+      <% end %>
+    <% end %>
+    
   </div>
 
   <div>
