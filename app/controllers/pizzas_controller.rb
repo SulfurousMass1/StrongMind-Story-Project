@@ -13,10 +13,13 @@ class PizzasController < ApplicationController
   # GET /pizzas/new
   def new
     @pizza = Pizza.new
+    @toppings = Topping.all
   end
 
   # GET /pizzas/1/edit
   def edit
+    @pizza = Pizza.find(params[:id])
+    @toppings = Topping.all
   end
 
   # POST /pizzas or /pizzas.json
@@ -65,6 +68,6 @@ class PizzasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pizza_params
-      params.require(:pizza).permit(:pizza_name, :crust, :toppings)
+      params.require(:pizza).permit(:pizza_name, :crust, topping_ids: [])
     end
 end
