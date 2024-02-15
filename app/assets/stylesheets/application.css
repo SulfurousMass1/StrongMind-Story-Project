@@ -17,8 +17,14 @@
 .custom-checkbox input[type="checkbox"] {
 	width: 15px;
 	height: 15px;
-	padding-left: 0;
-	padding-bottom: 5px;
 	cursor: pointer;
-	margin-right: 5px;
+}
+
+.dropdown {
+	padding-bottom: 5px;
+}
+
+ul, li {
+	list-style-type: none; /* Removes the bullet points */
+	padding-left: 0;
 }
