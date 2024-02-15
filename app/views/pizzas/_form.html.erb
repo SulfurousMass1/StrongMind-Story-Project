@@ -29,21 +29,22 @@
     
     <%= form.hidden_field :crust, id: 'selected-crust' %>
 
-    <script>
+    <%= javascript_include_tag "custom_dropdown", "data-turbo-track": "reload" %>
+
+    <%# <script>
       $(document).ready(function() {
-        $('.dropdown-menu a').click(function() {
+        $('.dropdown-menu a').click(function(event) {
           event.preventDefault();                   //Prevents the page from refreshing and should allow the select crust option to be displayed
           var selectedText = $(this).text();
           $('.dropdown-toggle').text(selectedText);
           $('#selected-crust').val(selectedText);
         });
       });
-    </script>
+    </script> %>
   </div>
 
 
   <div class="custom-checkbox">
-    <%= form_with(model: @pizza, local: true) do |form| %>
       <ul>
         <% @toppings.each do |topping| %>
           <li>
@@ -52,8 +53,6 @@
          </li>
         <% end %>
       </ul>
-    <% end %>
-    
   </div>
 
   <div>
