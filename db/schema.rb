@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_15_213221) do
-  # This is the table for the has_many :through association
+ActiveRecord::Schema[7.1].define(version: 2024_02_15_231024) do
   create_table "pizza_toppings", force: :cascade do |t|
     t.integer "pizza_id", null: false
     t.integer "topping_id", null: false
@@ -29,19 +28,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_15_213221) do
     t.datetime "updated_at", null: false
   end
 
-  # This was the table for the HABTM association that was originally being used
-  # create_table "pizzas_toppings", id: false, force: :cascade do |t|
-  #   t.integer "pizza_id", null: false
-  #   t.integer "topping_id", null: false
-  #   t.index ["pizza_id", "topping_id"], name: "index_pizzas_toppings_on_pizza_id_and_topping_id"
-  #   t.index ["topping_id", "pizza_id"], name: "index_pizzas_toppings_on_topping_id_and_pizza_id"
-  # end
+  create_table "pizzas_toppings", id: false, force: :cascade do |t|
+    t.integer "pizza_id", null: false
+    t.integer "topping_id", null: false
+    t.index ["pizza_id", "topping_id"], name: "index_pizzas_toppings_on_pizza_id_and_topping_id"
+    t.index ["topping_id", "pizza_id"], name: "index_pizzas_toppings_on_topping_id_and_pizza_id"
+  end
 
   create_table "toppings", force: :cascade do |t|
     t.string "topping"
     t.string "stock"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "amount"
   end
 
   add_foreign_key "pizza_toppings", "pizzas"
