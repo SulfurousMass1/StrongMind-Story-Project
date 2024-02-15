@@ -1,32 +1,21 @@
-<%= form_with(model: pizza) do |form| %>
+<%= form_with(model: pizza, local: true) do |form| %>
   <% if pizza.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(pizza.errors.count, "error") %> prohibited this pizza from being saved:</h2>
 
       <ul>
         <% pizza.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <li><%= error.full_message.to_sentence %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
   <div>
-    <%= form.label :pizza_name, style: "display: block" %>
-    <%= form.text_field :pizza_name %>
+    <%= form.text_field :pizza_name, placeholder:"Pizza Name" %>
   </div>
 
-
-<div class="dropdown">
-  
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
-  </ul>
-</div>
-
-  <div style="padding-top: 5px; padding-bottom: 5px;">
+  <div class="dropdown">
     <%= form.label :crust, style: "display: block" %>
     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       Crust
@@ -37,13 +26,32 @@
       <li><a class="dropdown-item" href="#">Garlic Butter</a></li>
       <li><a class="dropdown-item" href="#">Cheese Stuffed</a></li>
     </ul>
+    
+    <%= form.hidden_field :crust, id: 'selected-crust' %>
+
+    <script>
+      $(document).ready(function() {
+        $('.dropdown-menu a').click(function() {
+          event.preventDefault();                   //Prevents the page from refreshing and should allow the select crust option to be displayed
+          var selectedText = $(this).text();
+          $('.dropdown-toggle').text(selectedText);
+          $('#selected-crust').val(selectedText);
+        });
+      });
+    </script>
   </div>
+
 
   <div class="custom-checkbox">
     <%= form_with(model: @pizza, local: true) do |form| %>
-      <%= form.collection_check_boxes :topping_ids, @toppings, :id, :topping, {style: "margin-left: 0; padding-left: 0;"} do |b| %>
-        <%= b.label { b.check_box + b.text } %>
-      <% end %>
+      <ul>
+        <% @toppings.each do |topping| %>
+          <li>
+            <%= form.check_box :topping_ids, { multiple: true, id: "topping_#{topping.id}" }, topping.id, nil %>
+            <%= form.label "topping_ids_#{topping.id}", topping.topping %>
+         </li>
+        <% end %>
+      </ul>
     <% end %>
     
   </div>
