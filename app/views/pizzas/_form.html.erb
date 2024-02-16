@@ -16,31 +16,31 @@
   </div>
 
   <div class="dropdown">
-    <%= form.label :crust, style: "display: block" %>
-    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
       Crust
     </button>
-    <ul class="dropdown-menu">
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <li><a class="dropdown-item" href="#">Plain</a></li>
       <li><a class="dropdown-item" href="#">Parmesan</a></li>
       <li><a class="dropdown-item" href="#">Garlic Butter</a></li>
       <li><a class="dropdown-item" href="#">Cheese Stuffed</a></li>
     </ul>
     
-    <%= form.hidden_field :crust, id: 'selected-crust' %>
+    <%= form.hidden_field :crust, id: 'selected-crust', value: 'Plain' %>
 
-    <%= javascript_include_tag "custom_dropdown", "data-turbo-track": "reload" %>
+    <%# <div class="input-group mb-3">
+      <label class="input-group-text text-bg-secondary" for="inputGroupSelect01">Crust</label>
+      <select class="form-select" id="inputGroupSelect01">
+        <option selected>Plain</option>
+        <option value="1">Parmesan</option>
+        <option value="2">Garlic Butter</option>
+        <option value="3">Cheese Stuffed</option>
+      </select>
+    </div> %>
 
-    <%# <script>
-      $(document).ready(function() {
-        $('.dropdown-menu a').click(function(event) {
-          event.preventDefault();                   //Prevents the page from refreshing and should allow the select crust option to be displayed
-          var selectedText = $(this).text();
-          $('.dropdown-toggle').text(selectedText);
-          $('#selected-crust').val(selectedText);
-        });
-      });
-    </script> %>
+
+    <%= javascript_include_tag "custom_dropdown", "data-turbo-track": "reload", crossorigin: "anonymous" %>
+
   </div>
 
 
