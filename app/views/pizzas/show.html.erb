@@ -1,10 +1,18 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @pizza %>
-
-<div>
-  <%= link_to "Edit this pizza", edit_pizza_path(@pizza) %> |
-  <%= link_to "Back to pizzas", pizzas_path %>
-
-  <%= button_to "Destroy this pizza", @pizza, method: :delete %>
+<div class="container">
+  <div class="bg-dark-subtle rounded-3">
+    <h1 class="text-body-emphasis text-center"><%= @pizza.pizza_name %></h1>
+    <div class="w-50 pizza-info">
+      <h3 class="inline-element fw-semibold">Crust: </h3>
+      <p class="inline-element fs-4"><%= @pizza.crust %></p>
+      <br/>
+      <h3 class="inline-element fw-semibold">Toppings: </h3>
+      <p class="inline-element fs-4"><%= @toppings_list %></p>
+    </div>
+    <div class="text-center">
+      <%= link_to "Edit this pizza", edit_pizza_path(@pizza), class:"btn btn-primary btn-lg button-spacing" %>
+      <%= link_to "Back to pizzas", pizzas_path, class:"btn btn-primary btn-lg button-spacing" %>
+      <%= button_to "Destroy this pizza", @pizza, method: :delete, class:"btn btn-danger btn-lg danger-spacing" %>
+    </div>
+  </div>
 </div>
+
