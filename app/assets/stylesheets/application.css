@@ -21,10 +21,33 @@
 }
 
 .dropdown {
-	padding-bottom: 5px;
+	margin-top: 1vh;
+	padding-bottom: 0.5vh;
 }
 
 ul, li {
 	list-style-type: none; /* Removes the bullet points */
 	padding-left: 0;
+}
+
+.button-spacing {
+	margin-top: 0.5vh;
+	margin-right: 0.2vw;
+}
+
+.inline-element {
+	display: inline;
+}
+
+.pizza-info {
+	margin-left: 20vw;
+}
+
+.danger-spacing {
+	margin-top: 1vh;
+	margin-bottom: 2vh;
+}
+
+.container {
+	margin-top: 2vh;
 }
