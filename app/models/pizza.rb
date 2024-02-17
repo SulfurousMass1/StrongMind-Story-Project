@@ -1,5 +1,5 @@
 class Pizza < ApplicationRecord
-	validates :pizza_name, uniqueness: true
+	validates :pizza_name, uniqueness: {case_sensitive: false}
 	validate :unique_crust_and_toppings_combination
 
 	# has_and_belongs_to_many :toppings, join_table: 'pizzas_toppings'
