@@ -8,6 +8,7 @@ class ToppingsController < ApplicationController
 
   # GET /toppings/1 or /toppings/1.json
   def show
+    @topping = Topping.find(params[:id])
   end
 
   # GET /toppings/new
@@ -17,6 +18,7 @@ class ToppingsController < ApplicationController
 
   # GET /toppings/1/edit
   def edit
+    @topping = Topping.find(params[:id])
   end
 
   # POST /toppings or /toppings.json
@@ -65,6 +67,6 @@ class ToppingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def topping_params
-      params.require(:topping).permit(:topping, :stock)
+      params.require(:topping).permit(:topping_name, :stock)
     end
 end
