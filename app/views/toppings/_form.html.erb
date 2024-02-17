@@ -12,13 +12,26 @@
   <% end %>
 
   <div>
-    <%= form.label :topping, style: "display: block" %>
-    <%= form.text_field :topping %>
+    <%= form.text_field :topping_name, placeholder:"Topping Name" %>
   </div>
 
-  <div>
-    <%= form.label :stock, style: "display: block" %>
-    <%= form.text_field :stock %>
+  <div class="mb-3">
+    <%= form.label :stock, class: "form-label fs-6" %>
+    <select name="topping[stock]" id="topping_stock" class="form-select">
+      <option selected disabled>Select current inventory status</option>
+      <option value="In Stock" <%= 'selected' if @topping.stock == 'In Stock' %>>In Stock</option>
+      <option value="Running Low" <%= 'selected' if @topping.stock == 'Running Low' %>>Running Low</option>
+      <option value="Out of Stock" <%= 'selected' if @topping.stock == 'Out of Stock' %>>Out of Stock</option>
+    </select>
+
+
+
+    <% label_tag :stock, "Stock", class: "input-group-text text-bg-secondary", for: "inputGroupSelect" %>
+    
+    <%# A two-element array is used for because it follows the format [display, value] for consistent data formatting %>
+    <% select_tag :stock, 
+        options_for_select([["In Stock", "In Stock"], ["Running Low", "Running Low"], ["Out of Stock", "Out of Stock"]], topping.stock),
+        { include_blank: "Inventory Stock", class: "form-select", id: "inputGroupSelect" } %>
   </div>
 
   <div>

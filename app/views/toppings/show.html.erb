@@ -1,10 +1,15 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @topping %>
-
-<div>
-  <%= link_to "Edit this topping", edit_topping_path(@topping) %> |
-  <%= link_to "Back to toppings", toppings_path %>
-
-  <%= button_to "Destroy this topping", @topping, method: :delete %>
+<div class="container">
+  <div class="bg-dark-subtle rounded-3">
+    <h1 class="text-body-emphasis text-center"><%= @topping.topping_name %></h1>
+    <div class="w-50 pizza-info">
+      <h3 class="inline-element fw-semibold">Stock: </h3>
+      <p class="inline-element fs-3"><%= @topping.stock %></p>
+      <br/>
+    </div>
+    <div class="text-center">
+      <%= link_to "Edit this topping", edit_topping_path(@topping), class:"btn btn-primary btn-lg button-spacing" %>
+      <%= link_to "Back to toppings", toppings_path, class:"btn btn-primary btn-lg button-spacing" %>
+      <%= button_to "Destroy this topping", @topping, method: :delete, class:"btn btn-danger btn-lg danger-spacing" %>
+    </div>
+  </div>
 </div>

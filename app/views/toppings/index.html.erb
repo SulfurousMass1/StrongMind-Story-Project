@@ -1,14 +1,30 @@
-<p style="color: green"><%= notice %></p>
+<br/>
 
-<h1>Toppings</h1>
+<h1 class="text-center">Toppings</h1>
 
-<div id="toppings">
-  <% @toppings.each do |topping| %>
-    <%= render topping %>
-    <p>
-      <%= link_to "Show this topping", topping %>
-    </p>
-  <% end %>
-</div>
+<br/>
 
-<%= link_to "New topping", new_topping_path %>
+<table class="table w-50 table-striped table-bordered table-hover center" >
+  <thead class="table-dark">
+    <tr>
+      <th>Topping Name</th>
+      <th>Stock</th>
+      <th style="width:20%"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @toppings.each do |topping| %>
+      <tr>
+        <td><%= link_to topping.topping_name, topping %></td>
+        <td><%= topping.stock %></td>
+        <td>
+          <%= link_to 'Edit', edit_topping_path(topping), class:"btn btn-secondary btn-sm" %>
+          <%= link_to 'Delete', topping, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class:"btn btn-danger btn-sm" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New topping", new_topping_path, class:"btn btn-secondary table-align" %>
