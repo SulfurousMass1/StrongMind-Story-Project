@@ -5,7 +5,7 @@
 
       <ul>
         <% pizza.errors.each do |error| %>
-          <li><%= error.full_message.to_sentence %></li>
+          <li><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
@@ -16,10 +16,10 @@
   </div>
 
   <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       Crust
     </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="#">Plain</a></li>
       <li><a class="dropdown-item" href="#">Parmesan</a></li>
       <li><a class="dropdown-item" href="#">Garlic Butter</a></li>
@@ -49,7 +49,7 @@
         <% @toppings.each do |topping| %>
           <li>
             <%= form.check_box :topping_ids, { multiple: true, id: "topping_#{topping.id}" }, topping.id, nil %>
-            <%= form.label "topping_ids_#{topping.id}", topping.topping %>
+            <%= form.label "topping_ids_#{topping.id}", topping.topping_name %>
          </li>
         <% end %>
       </ul>
