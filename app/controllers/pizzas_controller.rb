@@ -9,7 +9,7 @@ class PizzasController < ApplicationController
   # GET /pizzas/1 or /pizzas/1.json
   def show
     @pizza = Pizza.find(params[:id])
-    @toppings_list = @pizza.toppings.any? ? @pizza.toppings.map(&:topping).join(', ') : 'No toppings'
+    @toppings_list = @pizza.toppings.any? ? @pizza.toppings.map(&:topping_name).join(', ') : 'No toppings'
   end
 
   # GET /pizzas/new
@@ -47,6 +47,7 @@ class PizzasController < ApplicationController
         format.html { redirect_to pizza_url(@pizza), notice: "Pizza was successfully updated." }
         format.json { render :show, status: :ok, location: @pizza }
       else
+        @toppings = Topping.all # Re-assigning the @toppings variable so that it can be available for the view after a validation error occurs
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @pizza.errors, status: :unprocessable_entity }
       end
