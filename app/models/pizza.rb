@@ -24,10 +24,10 @@ class Pizza < ApplicationRecord
 		similar_pizzas.each do |pizza|
 			Rails.logger.debug "--------------------------START OF LOOP----------------------------"
 			Rails.logger.debug "CURRENT PIZZA TOPPINGS: #{current_toppings}"
+			Rails.logger.debug "SIMILAR PIZZA: #{pizza.toppings.pluck(:topping).sort}"
 			
 			# Compares toppings between the current pizza (toppings.pluck(:id).sort) and similar pizzas (pizza.toppings.pluck(:id).sort)
 			# Sorting ensures that the IDs are more accurately compared
-			Rails.logger.debug "SIMILAR PIZZA: #{pizza.toppings.pluck(:topping).sort}"
 			if pizza.toppings.pluck(:topping).sort == current_toppings
 				errors.add(:base, "A pizza with the same crust and toppings you specified already exists")
 				Rails.logger.debug "-------------------------BREAK-------------------------------"
