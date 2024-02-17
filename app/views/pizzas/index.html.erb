@@ -19,7 +19,7 @@
         <td><%= link_to pizza.pizza_name, pizza %></td>
         <td><%= pizza.crust %></td>
         <%# Checks if the pizza has any toppings, and if it does, it displays the toppings in a single string separated by commas %>
-        <td><%= pizza.toppings.any? ? pizza.toppings.map(&:topping).join(', ') : 'No toppings' %></td>
+        <td><%= pizza.toppings.any? ? pizza.toppings.map(&:topping_name).join(', ') : 'No toppings' %></td>
         <td>
           <%= link_to 'Edit', edit_pizza_path(pizza), class:"btn btn-secondary btn-sm" %>
           <%= link_to 'Delete', pizza, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class:"btn btn-danger btn-sm" %>
