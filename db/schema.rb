@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_17_050459) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_17_080936) do
   create_table "pizza_toppings", force: :cascade do |t|
     t.integer "pizza_id", null: false
     t.integer "topping_id", null: false
@@ -40,7 +40,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_17_050459) do
     t.string "stock"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "amount"
   end
 
   add_foreign_key "pizza_toppings", "pizzas"
