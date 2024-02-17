@@ -33,6 +33,7 @@ class PizzasController < ApplicationController
         format.html { redirect_to pizza_url(@pizza), notice: "Pizza was successfully created." }
         format.json { render :show, status: :created, location: @pizza }
       else
+        @toppings = Topping.all # Re-assigning the @toppings variable so that it can be available for the view after a validation error occurs
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @pizza.errors, status: :unprocessable_entity }
       end
