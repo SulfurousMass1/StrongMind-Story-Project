@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :pizzas
   get 'home/pizzas'
   get 'home/toppings'
-  root 'home#index'
+  #root 'home#index'
+  root to: redirect('/pizzas')
 end
