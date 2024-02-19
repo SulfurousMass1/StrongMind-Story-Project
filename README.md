@@ -54,3 +54,5 @@ This Rails application provides a simple interface for creating and managing piz
 
 <h2>Testing</h2>
 Tests can be run with the following command: 'rails test'
+There might be some issues trying to run the tests due to migrations, so you will just need to run the command 'bin/rails db:migrate RAILS_ENV=test' and that should hopefully fix that issue.
+The tests should all work except for one, which is trying to create the pizza. I could not get the tests to all be properly updated after making changes to the schema and models, but got all of them except that one to work.
