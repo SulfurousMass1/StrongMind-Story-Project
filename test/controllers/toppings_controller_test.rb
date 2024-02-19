@@ -17,7 +17,7 @@ class ToppingsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create topping" do
     assert_difference("Topping.count") do
-      post toppings_url, params: { topping: { stock: @topping.stock, topping: @topping.topping } }
+      post toppings_url, params: { topping: { stock: @topping.stock, topping: @topping.topping_name } }
     end
 
     assert_redirected_to topping_url(Topping.last)
@@ -34,7 +34,7 @@ class ToppingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update topping" do
-    patch topping_url(@topping), params: { topping: { stock: @topping.stock, topping: @topping.topping } }
+    patch topping_url(@topping), params: { topping: { stock: @topping.stock, topping: @topping.topping_name } }
     assert_redirected_to topping_url(@topping)
   end
 

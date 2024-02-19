@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  topping: MyString
-  stock: MyString
+  topping_name: Pepperoni
+  stock: In stock
 
 two:
-  topping: MyString
-  stock: MyString
+  topping_name: Bacon
+  stock: In stock
