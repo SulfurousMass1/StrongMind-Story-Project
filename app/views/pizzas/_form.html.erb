@@ -28,14 +28,18 @@
   </div>
 
   <div class="custom-checkbox">
-      <ul>
-        <% @toppings.each do |topping| %>
-          <li>
-            <%= form.check_box :topping_ids, { multiple: true, id: "topping_#{topping.id}" }, topping.id, nil %>
-            <%= form.label "topping_ids_#{topping.id}", topping.topping_name %>
-         </li>
-        <% end %>
-      </ul>
+      <% if @toppings.empty? %>
+        <p>Toppings need to be created before you can add any to a pizza.</p>
+      <% else %>
+        <ul>
+          <% @toppings.each do |topping| %>
+            <li>
+              <%= form.check_box :topping_ids, { multiple: true, id: "topping_#{topping.id}" }, topping.id, nil %>
+              <%= form.label "topping_ids_#{topping.id}", topping.topping_name %>
+           </li>
+          <% end %>
+        </ul>
+      <% end %>
   </div>
 
   <div>
