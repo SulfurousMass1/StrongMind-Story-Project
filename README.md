@@ -24,6 +24,14 @@ This Rails application provides a simple interface for creating and managing piz
 
 <h2>Installation</h2>
 <ol>
+  <li>Make sure you have installed the following (in the order shown if not already on your computer):</li>
+    <ol type="a">
+      <li>Git Bash: https://git-scm.com/download</li>
+      <li>Rails: https://hotframeworks.com/railsinstaller-org/</li>
+      <p>(Even though this is not the most recent version of Rails, this will install all the other necessary dependencies we need such as SQLite3. No need to worry about uninstalling the old version either.)</p>
+      <li>Ruby (now installing the most recent version of Ruby): https://rubyinstaller.org/</li>
+      <li>Open the Git Bash terminal. Run the command 'ruby -v' to verify you are using the most recent version of Ruby, and if you are, run the command 'gem install rails' to get the latest version of rails.</li>
+    </ol>
   <li>Clone the repository</li>
     <ol type="a">
       <li>git clone https://github.com/SulfurousMass1/StrongMind-Story-Project.git</li>
@@ -35,14 +43,14 @@ This Rails application provides a simple interface for creating and managing piz
     </ol>
   <li>Setup the database</li>
     <ol type="a">
-      rails db:create db:migrate db:seed
+      <li>rails db:create db:migrate db:seed</li>
     </ol>
   <li>Start the Rails server</li>
     <ol type="a">
-      rails server
+      <li>'rails server' or 'rails s'</li>
     </ol>
   <li>Visit "http://localhost:3000" to view the application</li>
 </ol>
 
 <h2>Testing</h2>
-Tests can be run with the following command: "rails test"
+Tests can be run with the following command: 'rails test'
