@@ -3,8 +3,14 @@ require "test_helper"
 class PizzasControllerTest < ActionDispatch::IntegrationTest
   setup do
     @pizza = pizzas(:one)
-    @topping_one = toppings(:one)
-    @topping_two = toppings(:two)
+
+    # Toppings are not included as an attribute as those are handled in pizzas/_form.html.erb with checkboxes
+    @pizza_attributes = {
+      pizza: {
+        pizza_name: "Test",
+        crust: "Parmesan",
+      }
+    }
   end
 
   test "should get index" do
@@ -18,8 +24,8 @@ class PizzasControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create pizza" do
-    assert_difference("Pizza.count", 1) do
-      post pizzas_url, params: { pizza: { crust: @pizza.crust, pizza_name: @pizza.pizza_name, topping_ids: [@topping_one.id, @topping_two.id] } }
+    assert_difference("Pizza.count") do
+      post pizzas_url, params: @pizza_attributes
     end
 
     assert_redirected_to pizza_url(Pizza.last)
