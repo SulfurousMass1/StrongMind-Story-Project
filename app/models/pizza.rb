@@ -30,7 +30,7 @@ class Pizza < ApplicationRecord
 			# Sorting ensures that the toppings are more accurately compared
 			if pizza.toppings.pluck(:topping_name).sort == current_toppings
 				errors.add(:base, "A pizza with the same crust and toppings you specified already exists")
-				Rails.logger.debug "-------------------------BREAK-------------------------------"
+				# Rails.logger.debug "-------------------------BREAK-------------------------------"
 				break
 			end
 		end
