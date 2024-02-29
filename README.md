@@ -32,7 +32,7 @@ This Rails application provides a simple interface for creating and managing piz
       <li>Ruby (now installing the most recent version of Ruby): https://rubyinstaller.org/</li>
       <li>Open the Git Bash terminal. Run the command 'ruby -v' to verify you are using the most recent version of Ruby, and if you are, run the command 'gem install rails' to get the latest version of rails.</li>
     </ol>
-  <li>Clone the repository</li>
+  <li>Clone the repository in Git Bash (run as Administrator)</li>
     <ol type="a">
       <li>git clone https://github.com/SulfurousMass1/StrongMind-Story-Project.git</li>
       <li>cd StrongMind-Story-Project</li>
