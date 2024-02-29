@@ -34,7 +34,7 @@ This Rails application provides a simple interface for creating and managing piz
     </ol>
   <li>Clone the repository in Git Bash</li>
     <ol type="a">
-      <li>git clone https://github.com/SulfurousMass1/StrongMind-Story-Project.git</li>
+      <li>git clone https://github.com/tyler-mercado/StrongMind-Story-Project.git</li>
       <li>cd StrongMind-Story-Project</li>
     </ol>
   <li>Install the required gems</li>
