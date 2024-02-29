@@ -30,9 +30,9 @@ This Rails application provides a simple interface for creating and managing piz
       <li>Rails: https://hotframeworks.com/railsinstaller-org/</li>
       <p>(Even though this is not the most recent version of Rails, this will install all the other necessary dependencies we need such as SQLite3. No need to worry about uninstalling the old version either.)</p>
       <li>Ruby (now installing the most recent version of Ruby): https://rubyinstaller.org/</li>
-      <li>Open the Git Bash terminal. Run the command 'ruby -v' to verify you are using the most recent version of Ruby, and if you are, run the command 'gem install rails' to get the latest version of rails.</li>
+      <li>Open the Git Bash terminal and run it as Administrator. Run the command 'ruby -v' to verify you are using the most recent version of Ruby, and if you are, run the command 'gem install rails' to get the latest version of rails.</li>
     </ol>
-  <li>Clone the repository in Git Bash (run as Administrator)</li>
+  <li>Clone the repository in Git Bash</li>
     <ol type="a">
       <li>git clone https://github.com/SulfurousMass1/StrongMind-Story-Project.git</li>
       <li>cd StrongMind-Story-Project</li>
@@ -55,4 +55,7 @@ This Rails application provides a simple interface for creating and managing piz
 <h2>Testing</h2>
 Tests can be run with the following command: 'rails test'
 There might be some issues trying to run the tests due to migrations, so you will just need to run the command 'bin/rails db:migrate RAILS_ENV=test' and that should hopefully fix that issue.
+If you run into further issues, first make sure that Git Bash is being run as Administrator. Afterwards, make sure all the gems are updated with the following commands:
+<li>gem update --system</li>
+<li>gem update</li>
 The tests should all work except for one, which is trying to create the pizza. I could not get the tests to all be properly updated after making changes to the schema and models, but got all of them except that one to work.
