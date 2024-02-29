@@ -28,7 +28,7 @@
 
     <% label_tag :stock, "Stock", class: "input-group-text text-bg-secondary", for: "inputGroupSelect" %>
     
-    <%# A two-element array is used for because it follows the format [display, value] for consistent data formatting %>
+    <%# A two-element array is used because it follows the format [display, value] for consistent data formatting %>
     <% select_tag :stock, 
         options_for_select([["In Stock", "In Stock"], ["Running Low", "Running Low"], ["Out of Stock", "Out of Stock"]], topping.stock),
         { include_blank: "Inventory Stock", class: "form-select", id: "inputGroupSelect" } %>
